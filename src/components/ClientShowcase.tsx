@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import ClientLogo from "./ClientLogo";
 import amazonLogo from "@/assets/logos/amazon.png";
 import hotstarLogo from "@/assets/logos/hotstar.png";
 import philipsLogo from "@/assets/logos/philips.png";
@@ -25,17 +26,39 @@ const clients = [
 const ClientShowcase = () => {
   const [isPaused, setIsPaused] = useState(false);
   const { targetRef, hasIntersected } = useIntersectionObserver();
+  const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (sectionRef.current) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      setSpotlight({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
 
   return (
     <section
       ref={targetRef as React.RefObject<HTMLElement>}
-      className={`py-16 px-6 bg-background transition-opacity duration-700 ${
+      className={`py-16 px-6 bg-background transition-opacity duration-700 relative overflow-hidden ${
         hasIntersected ? "animate-fade-in" : "opacity-0"
       }`}
       aria-label="Client showcase"
+      onMouseMove={handleMouseMove}
     >
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
+      {/* Spotlight effect */}
+      <div
+        ref={sectionRef}
+        className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-30 transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(600px circle at ${spotlight.x}px ${spotlight.y}px, hsl(var(--primary) / 0.15), transparent 40%)`,
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-glow-sm">
           Trusted by Leading Brands
         </h2>
 
@@ -56,41 +79,22 @@ const ClientShowcase = () => {
             }}
           >
             {/* First set */}
-            {clients.map((client) => (
-              <div
+            {clients.map((client, index) => (
+              <ClientLogo
                 key={`${client.name}-1`}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110 hover:z-10"
-              >
-                <img
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  className="max-w-full max-h-full object-contain"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                  }}
-                />
-              </div>
+                name={client.name}
+                logo={client.logo}
+                index={index}
+              />
             ))}
             {/* Duplicate set for seamless loop */}
-            {clients.map((client) => (
-              <div
+            {clients.map((client, index) => (
+              <ClientLogo
                 key={`${client.name}-2`}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110 hover:z-10"
-                aria-hidden="true"
-              >
-                <img
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  className="max-w-full max-h-full object-contain"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                  }}
-                />
-              </div>
+                name={client.name}
+                logo={client.logo}
+                index={index}
+              />
             ))}
           </div>
         </div>

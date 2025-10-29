@@ -151,6 +151,52 @@ export default {
           "50%": {
             opacity: "1"
           }
+        },
+        "bounce-slow": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)"
+          },
+          "50%": {
+            transform: "translateY(25%)",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)"
+          }
+        },
+        "gradient-shift": {
+          "0%, 100%": {
+            backgroundPosition: "0% 50%"
+          },
+          "50%": {
+            backgroundPosition: "100% 50%"
+          }
+        },
+        "grid-flow": {
+          "0%": {
+            transform: "translate(0, 0)"
+          },
+          "100%": {
+            transform: "translate(50px, 50px)"
+          }
+        },
+        "slide-in-left": {
+          "0%": {
+            transform: "translateX(-100%)",
+            opacity: "0"
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1"
+          }
+        },
+        "zoom-in": {
+          "0%": {
+            transform: "scale(0.95)",
+            opacity: "0"
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "1"
+          }
         }
       },
       animation: {
@@ -159,11 +205,16 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "slide-in-right": "slide-in-right 0.4s ease-out",
+        "slide-in-left": "slide-in-left 0.4s ease-out",
+        "zoom-in": "zoom-in 0.5s ease-out",
         "scroll": "scroll 30s linear infinite",
         "ripple": "ripple 0.6s ease-out",
         "pull-refresh": "pull-refresh 0.3s ease-out",
         "spotlight-pulse": "spotlight-pulse 2s ease-in-out infinite",
-        "loading-dots": "loading-dots 1.5s ease-in-out infinite"
+        "loading-dots": "loading-dots 1.5s ease-in-out infinite",
+        "bounce-slow": "bounce-slow 2s infinite",
+        "gradient-shift": "gradient-shift 3s ease infinite",
+        "grid-flow": "grid-flow 20s linear infinite"
       },
     },
   },

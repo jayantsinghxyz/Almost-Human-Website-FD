@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Film, Clapperboard, Music, Sparkles, ChevronDown } from "lucide-react";
 
 interface Service {
   title: string;
   description: string;
   deliverables: string[];
+  icon: React.ElementType;
 }
 
 const services: Service[] = [
   {
     title: "AI Commercials",
     description: "Cinematic brand commercials crafted to go viral",
+    icon: Film,
     deliverables: [
       "Concept Brief",
       "Pre-Execution Doc",
@@ -21,6 +23,7 @@ const services: Service[] = [
   {
     title: "AI Films",
     description: "Films to make your brand unforgettable.",
+    icon: Clapperboard,
     deliverables: [
       "Content Strategy",
       "AI Character & Scene Creation",
@@ -31,6 +34,7 @@ const services: Service[] = [
   {
     title: "AI Music Videos",
     description: "Rhythm-driven visually stunning music videos, powered by AI.",
+    icon: Music,
     deliverables: [
       "Video Concept",
       "AI Visual & Motion Design",
@@ -41,6 +45,7 @@ const services: Service[] = [
   {
     title: "Miscellaneous",
     description: "Experimental creatives, visual tests, and creative projects.",
+    icon: Sparkles,
     deliverables: [
       "Digital Avatars",
       "Branded IPs",
@@ -69,52 +74,67 @@ const ServicesSection = () => {
           </p>
 
           <div className="space-y-4" role="list">
-            {services.map((service, index) => (
-              <article
-                key={index}
-                className="border border-border rounded-lg overflow-hidden backdrop-blur-sm bg-card/50 hover:border-primary/50 transition-all duration-300"
-                role="listitem"
-              >
-                <button
-                  onClick={() => toggleService(index)}
-                  className="w-full px-6 py-6 flex justify-between items-center text-left hover:bg-primary/5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-                  aria-expanded={expandedIndex === index}
-                  aria-controls={`service-content-${index}`}
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <article
+                  key={index}
+                  className="border border-border rounded-lg overflow-hidden backdrop-blur-sm bg-card/50 hover:border-primary/50 transition-all duration-300 hover-glow group"
+                  role="listitem"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="flex-1">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2">{service.title}</h3>
-                    <p className="text-muted-foreground">{service.description}</p>
-                  </div>
-                  <ChevronDown
-                    className={`w-6 h-6 ml-4 transition-transform duration-300 ${
-                      expandedIndex === index ? "rotate-180" : ""
-                    }`}
-                    aria-hidden="true"
-                  />
-                </button>
+                  <button
+                    onClick={() => toggleService(index)}
+                    className="w-full px-6 py-6 flex justify-between items-center text-left hover:bg-primary/5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                    aria-expanded={expandedIndex === index}
+                    aria-controls={`service-content-${index}`}
+                  >
+                    <div className="flex items-start gap-4 flex-1">
+                      <div className={`p-3 rounded-lg bg-gradient-blue transition-all duration-300 ${
+                        expandedIndex === index ? 'scale-110 rotate-3' : ''
+                      }`}>
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2">{service.title}</h3>
+                        <p className="text-muted-foreground">{service.description}</p>
+                      </div>
+                    </div>
+                    <ChevronDown
+                      className={`w-6 h-6 ml-4 transition-transform duration-300 ${
+                        expandedIndex === index ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
 
-                <div
-                  id={`service-content-${index}`}
-                  className={`overflow-hidden transition-all duration-300 ${
-                    expandedIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                  role="region"
-                  aria-labelledby={`service-title-${index}`}
-                >
-                  <div className="px-6 pb-6 pt-2 bg-primary/5">
-                    <h4 className="text-lg font-semibold mb-3 text-primary">Deliverables:</h4>
-                    <ul className="space-y-2">
-                      {service.deliverables.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="text-primary mt-1" aria-hidden="true">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div
+                    id={`service-content-${index}`}
+                    className={`overflow-hidden transition-all duration-300 ${
+                      expandedIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                    role="region"
+                    aria-labelledby={`service-title-${index}`}
+                  >
+                    <div className="px-6 pb-6 pt-2 bg-gradient-to-br from-primary/10 to-accent/5">
+                      <h4 className="text-lg font-semibold mb-3 text-gradient">Deliverables:</h4>
+                      <ul className="space-y-2">
+                        {service.deliverables.map((item, i) => (
+                          <li 
+                            key={i} 
+                            className="flex items-start gap-3 animate-fade-in"
+                            style={{ animationDelay: `${i * 0.05}s` }}
+                          >
+                            <span className="text-primary mt-1" aria-hidden="true">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>

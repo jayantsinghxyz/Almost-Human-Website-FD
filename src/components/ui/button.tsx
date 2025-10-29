@@ -2,6 +2,7 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { useRipple } from "@/hooks/useRipple";
+import { useMagneticEffect } from "@/hooks/useMagneticEffect";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -40,6 +41,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     const { ripples, addRipple } = useRipple();
+    const [magneticRef, magneticPosition] = useMagneticEffect<HTMLButtonElement>(0.2);
+
+    React.useImperativeHandle(ref, () => magneticRef.current!);
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (!asChild) {
@@ -50,8 +54,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden")}
-        ref={ref}
+        className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden hover-lift")}
+        ref={magneticRef}
+        style={{
+          transform: `translate(${magneticPosition.x}px, ${magneticPosition.y}px)`,
+          transition: 'transform 0.3s ease-out',
+        }}
         {...props}
         onClick={handleClick as any}
       >

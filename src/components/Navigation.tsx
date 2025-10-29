@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { NAV_LINKS, SITE_CONFIG } from "@/config/constants";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeSection = useScrollSpy(NAV_LINKS.map((link) => link.id), 100);
+  const { scrollY } = useScrollPosition();
+  
+  const isScrolled = scrollY > 100;
+  const showDesktopNav = scrollY > 200;
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -56,8 +61,10 @@ const Navigation = () => {
         Skip to main content
       </a>
 
-      {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-background/40 via-background/20 to-transparent">
+      {/* Header - Mobile always visible */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 md:hidden ${
+        isScrolled ? 'bg-background/95 backdrop-blur-lg shadow-lg' : 'bg-gradient-to-b from-background/40 via-background/20 to-transparent'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -83,10 +90,55 @@ const Navigation = () => {
         </div>
       </header>
 
-      {/* Full Screen Menu */}
+      {/* Desktop Navigation */}
+      <nav 
+        className={`hidden md:flex fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          showDesktopNav 
+            ? 'translate-y-0 opacity-100 bg-background/95 backdrop-blur-lg shadow-lg' 
+            : '-translate-y-full opacity-0'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4 w-full flex justify-between items-center">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-2xl font-bold hover:text-primary transition-colors"
+            aria-label="Go to top"
+          >
+            {SITE_CONFIG.name}
+          </button>
+
+          <div className="flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className={`text-sm font-medium transition-all duration-200 hover:text-primary relative ${
+                  activeSection === link.id ? 'text-primary' : 'text-foreground/80'
+                }`}
+              >
+                {link.label}
+                {activeSection === link.id && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary animate-fade-in" />
+                )}
+              </button>
+            ))}
+
+            <a
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${SITE_CONFIG.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors border border-primary px-4 py-2 rounded-lg hover-glow"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Full Screen Mobile Menu */}
       <nav
         id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-background transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-background transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!isMenuOpen}

@@ -1,11 +1,19 @@
 import heroBg from "@/assets/hero-bg.png";
 import heroBlur from "@/assets/hero-bg-blur.jpg";
 import { useParallax } from "@/hooks/useParallax";
+import { useTypewriter } from "@/hooks/useTypewriter";
 import { useState } from "react";
+import GridBackground from "./GridBackground";
+import ScrollIndicator from "./ScrollIndicator";
 
 const Hero = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const parallaxOffset = useParallax(0.5);
+  const { displayedText } = useTypewriter({ 
+    text: "Making AI films feel human", 
+    speed: 80, 
+    delay: 1000 
+  });
 
   return (
     <header className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -42,18 +50,20 @@ const Hero = () => {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+        <GridBackground />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-fade-in-up">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 lg:mb-8 tracking-tight leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-4 sm:mb-6 lg:mb-8 tracking-tight leading-tight text-gradient-animated text-glow-lg">
           ALMOSTHUMAN
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light max-w-4xl mx-auto">
-          Making AI films feel human
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground/80 font-light max-w-4xl mx-auto min-h-[2.5rem] sm:min-h-[3rem]">
+          {displayedText}<span className="inline-block w-0.5 h-6 sm:h-8 bg-primary ml-1 animate-pulse" />
         </p>
       </div>
 
+      <ScrollIndicator />
     </header>
   );
 };
