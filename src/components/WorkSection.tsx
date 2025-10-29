@@ -90,18 +90,18 @@ const WorkSection = () => {
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 md:w-16 md:h-16 bg-primary/90 hover:bg-primary hover:scale-110 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Previous video"
             >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-white stroke-[2.5]" />
             </button>
             
             <button
               onClick={nextSlide}
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 md:w-16 md:h-16 bg-primary/90 hover:bg-primary hover:scale-110 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Next video"
             >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-white stroke-[2.5]" />
             </button>
 
             <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
