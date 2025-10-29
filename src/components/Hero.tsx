@@ -55,11 +55,11 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-fade-in-up">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-[90vw] mx-auto animate-fade-in-up">
         <img 
           src={logo} 
           alt="AlmostHuman" 
-          className="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] h-auto mx-auto mb-4 sm:mb-6 lg:mb-8"
+          className="w-[280px] sm:w-[500px] md:w-[700px] lg:w-[1000px] xl:w-[1200px] 2xl:w-[1400px] h-auto mx-auto mb-4 sm:mb-6 lg:mb-8"
         />
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground/80 font-light max-w-4xl mx-auto min-h-[2.5rem] sm:min-h-[3rem]">
           {displayedText}
