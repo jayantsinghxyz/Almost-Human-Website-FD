@@ -28,25 +28,37 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Main cursor dot */}
+      {/* Arrow pointer with gradient and glow */}
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference cursor-custom"
-        style={{ x: x - 8, y: y - 8 }}
+        className="fixed top-0 left-0 w-5 h-5 pointer-events-none z-[9999] cursor-glow will-change-transform"
+        style={{ 
+          x: x - 2.5, 
+          y: y - 2.5,
+          clipPath: 'polygon(0 0, 100% 50%, 0 100%, 15% 50%)',
+          background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%)',
+        }}
+        animate={{
+          scale: isPointer ? 1.3 : 1,
+        }}
         transition={{
           type: 'spring',
-          damping: 30,
+          damping: 25,
           stiffness: 400,
           mass: 0.5,
         }}
       />
       
-      {/* Outer ring */}
+      {/* Glow orb */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-primary/50 rounded-full pointer-events-none z-[9999] mix-blend-difference"
-        style={{ x: x - 16, y: y - 16 }}
+        className={`fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9998] will-change-transform ${isPointer ? 'cursor-glow-intense' : 'cursor-glow'}`}
+        style={{ 
+          x: x - 16, 
+          y: y - 16,
+          background: 'radial-gradient(circle, hsl(var(--primary) / 0.6) 0%, transparent 70%)',
+        }}
         animate={{
-          scale: isPointer ? 1.5 : 1,
-          opacity: isPointer ? 0.6 : 0.3,
+          scale: isPointer ? 1.8 : 1.2,
+          opacity: isPointer ? 0.9 : 0.6,
         }}
         transition={{
           type: 'spring',
@@ -55,22 +67,42 @@ const CustomCursor = () => {
         }}
       />
       
-      {/* Trail effect */}
-      {[1, 2, 3].map((i) => (
+      {/* Secondary glow layer for depth */}
+      <motion.div
+        className="fixed top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-[9997] will-change-transform"
+        style={{ 
+          x: x - 24, 
+          y: y - 24,
+          background: 'radial-gradient(circle, hsl(var(--primary) / 0.4) 0%, transparent 80%)',
+        }}
+        animate={{
+          scale: isPointer ? 2 : 1.5,
+          opacity: isPointer ? 0.8 : 0.4,
+        }}
+        transition={{
+          type: 'spring',
+          damping: 15,
+          stiffness: 250,
+        }}
+      />
+      
+      {/* Trail dots */}
+      {[1, 2].map((i) => (
         <motion.div
           key={i}
-          className="fixed top-0 left-0 rounded-full pointer-events-none z-[9998] mix-blend-difference bg-primary/30"
+          className="fixed top-0 left-0 rounded-full pointer-events-none z-[9996] opacity-30"
           style={{ 
-            x: x - 4 - i, 
-            y: y - 4 - i,
-            width: 8 - i * 2,
-            height: 8 - i * 2,
+            x: x - 3 - i * 2, 
+            y: y - 3 - i * 2,
+            width: 6 - i * 2,
+            height: 6 - i * 2,
+            background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.6) 100%)',
           }}
           transition={{
             type: 'spring',
-            damping: 30 + i * 10,
-            stiffness: 300 - i * 50,
-            mass: 0.5 + i * 0.2,
+            damping: 25 + i * 15,
+            stiffness: 300 - i * 80,
+            mass: 0.5 + i * 0.3,
           }}
         />
       ))}
