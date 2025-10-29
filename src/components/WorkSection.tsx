@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { useSwipeGesture } from "@/hooks/useSwipeGesture";
@@ -53,6 +52,15 @@ const WorkSection = () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  // Auto-scroll carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const currentVideo = WORK_VIDEOS[currentIndex];
 
@@ -115,26 +123,6 @@ const WorkSection = () => {
             )}
           </div>
 
-          {/* Navigation Buttons */}
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border-primary hover:bg-primary/10"
-            onClick={prevSlide}
-            aria-label="Previous video"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border-primary hover:bg-primary/10"
-            onClick={nextSlide}
-            aria-label="Next video"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </Button>
 
           {/* Video Title */}
           <div className="text-center mt-6">
