@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
 
 // Form Configuration
 export const FORM_CONFIG = {
-  web3FormsAccessKey: "YOUR_WEB3FORMS_ACCESS_KEY", // Replace with your actual key
+  web3FormsAccessKey: "a849a796-0af5-4635-bb4d-3bb8fa441fb9",
   maxNameLength: 100,
   maxEmailLength: 255,
   maxMessageLength: 1000,
