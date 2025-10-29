@@ -62,10 +62,10 @@ const Navigation = () => {
       </a>
 
       {/* Header - Always visible */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-16 md:h-20 ${
         isScrolled ? 'bg-background/95 backdrop-blur-lg shadow-lg' : 'bg-gradient-to-b from-background/40 via-background/20 to-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex justify-between items-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-xl sm:text-2xl font-bold hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"

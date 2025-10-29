@@ -63,17 +63,17 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-background/80 to-background">
-      <div className="max-w-5xl mx-auto">
-        <div className="backdrop-blur-xl bg-card/30 border border-border/50 rounded-3xl p-4 sm:p-8 lg:p-12 shadow-2xl">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center mb-3 sm:mb-4 animate-fade-in">
+    <section id="services" className="py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background/80 to-background">
+      <div className="max-w-6xl mx-auto">
+        <div className="backdrop-blur-xl bg-card/30 border border-border/50 rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-3 sm:mb-4 animate-fade-in">
             What Do We Do
           </h2>
           <p className="text-center text-base sm:text-lg text-muted-foreground mb-8 sm:mb-12 md:mb-16">
             Our range of services includes-
           </p>
 
-          <div className="space-y-4" role="list">
+          <div className="space-y-4 md:space-y-6" role="list">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -85,7 +85,7 @@ const ServicesSection = () => {
                 >
                   <button
                     onClick={() => toggleService(index)}
-                    className="w-full px-4 py-4 sm:px-6 sm:py-6 flex justify-between items-center text-left hover:bg-primary/5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full p-6 sm:p-8 md:p-10 lg:p-12 flex justify-between items-center text-left hover:bg-primary/5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
                     aria-expanded={expandedIndex === index}
                     aria-controls={`service-content-${index}`}
                   >

@@ -132,20 +132,20 @@ const ContactSection = () => {
     <section
       id="contact"
       ref={targetRef as React.RefObject<HTMLElement>}
-      className={`py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-background to-background/80 transition-opacity duration-700 ${
+      className={`py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-background/80 transition-opacity duration-700 ${
         hasIntersected ? "animate-fade-in" : "opacity-0"
       }`}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="backdrop-blur-xl bg-card/30 border border-border/50 rounded-3xl p-5 sm:p-8 lg:p-12 shadow-2xl">
+        <div className="backdrop-blur-xl bg-card/30 border border-border/50 rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl">
           <div className="text-center mb-6 sm:mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 sm:mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
               Let's create something <span className="whitespace-nowrap">almost human.</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground">Your imagination made real.</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 mb-6 sm:mb-8" aria-label="Contact form">
+          <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6 mb-6 sm:mb-8" aria-label="Contact form">
             <div>
               <Label htmlFor="name" className="sr-only">Name</Label>
               <Input
@@ -222,7 +222,7 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="flex-1 bg-primary hover:bg-primary/90 h-14 sm:h-14 text-lg sm:text-lg font-bold"
+                className="flex-1 bg-primary hover:bg-primary/90 h-12 md:h-14 text-lg sm:text-lg font-bold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -239,7 +239,7 @@ const ContactSection = () => {
                 size="lg"
                 variant="outline"
                 onClick={handleBookCall}
-                className="flex-1 border-primary hover:bg-primary/10 h-14 sm:h-14 text-lg sm:text-lg font-bold"
+                className="flex-1 border-primary hover:bg-primary/10 h-12 md:h-14 text-lg sm:text-lg font-bold"
                 disabled={isSubmitting}
                 aria-label="Book a call on Instagram"
               >

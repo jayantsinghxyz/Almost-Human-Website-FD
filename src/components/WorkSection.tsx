@@ -64,12 +64,12 @@ const WorkSection = () => {
     <section
       id="work"
       ref={targetRef as React.RefObject<HTMLElement>}
-      className="py-20 px-6 bg-background"
+      className="py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="backdrop-blur-xl bg-card/30 border border-border/50 rounded-3xl p-8 sm:p-12 shadow-2xl">
+        <div className="backdrop-blur-xl bg-card/30 border border-border/50 rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Not Another<br className="sm:hidden" /> AI Studio
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto">
@@ -119,7 +119,7 @@ const WorkSection = () => {
             </div>
 
             {/* Dots Navigation */}
-            <div className="flex justify-center gap-2 mt-6" role="tablist">
+            <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8" role="tablist">
               {WORK_VIDEOS.map((_, index) => (
                 <button
                   key={index}
@@ -139,10 +139,10 @@ const WorkSection = () => {
             </div>
 
             {/* Navigation Buttons - Centered */}
-            <div className="flex justify-center items-center gap-3 md:gap-4 mt-8">
+            <div className="flex justify-center items-center gap-3 md:gap-4 mt-6 md:mt-8">
               <button
                 onClick={prevSlide}
-                className="w-14 h-10 md:w-20 md:h-12
+                className="w-11 h-11 md:w-16 md:h-16
                            bg-background/80 backdrop-blur-md
                            border border-primary/20
                            hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70
@@ -159,7 +159,7 @@ const WorkSection = () => {
               
               <button
                 onClick={nextSlide}
-                className="w-14 h-10 md:w-20 md:h-12
+                className="w-11 h-11 md:w-16 md:h-16
                            bg-background/80 backdrop-blur-md
                            border border-primary/20
                            hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70

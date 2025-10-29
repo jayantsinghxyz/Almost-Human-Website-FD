@@ -16,7 +16,7 @@ const Hero = () => {
   });
 
   return (
-    <header className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <header className="relative h-screen w-full flex items-center justify-center overflow-hidden pt-20">
       {/* Background image with parallax overlay */}
       <div className="absolute inset-0" aria-hidden="true">
         <div
