@@ -59,7 +59,7 @@ const ClientShowcase = () => {
             {clients.map((client) => (
               <div
                 key={`${client.name}-1`}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                className="flex-shrink-0 w-32 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110"
               >
                 <img
                   src={client.logo}
@@ -77,7 +77,7 @@ const ClientShowcase = () => {
             {clients.map((client) => (
               <div
                 key={`${client.name}-2`}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                className="flex-shrink-0 w-32 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110"
                 aria-hidden="true"
               >
                 <img
