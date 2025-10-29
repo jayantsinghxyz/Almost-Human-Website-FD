@@ -58,10 +58,10 @@ const Navigation = () => {
 
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-background/40 via-background/20 to-transparent">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-2xl font-bold hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"
+            className="text-xl sm:text-2xl font-bold hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"
             aria-label="Go to top"
           >
             {SITE_CONFIG.name}
