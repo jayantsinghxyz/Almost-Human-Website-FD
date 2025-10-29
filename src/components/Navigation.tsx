@@ -96,10 +96,10 @@ const Navigation = () => {
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}
-              className={`text-4xl md:text-6xl font-bold hover:text-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-4 ${
+              className={`text-4xl md:text-6xl font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-4 ${
                 activeSection === link.id
                   ? "text-primary scale-110"
-                  : "text-foreground hover:scale-105"
+                  : "text-white hover:text-primary hover:scale-105"
               }`}
             >
               {link.label}
@@ -107,8 +107,10 @@ const Navigation = () => {
           ))}
 
           <a
-            href={`mailto:${SITE_CONFIG.email}`}
-            className="mt-12 text-xl text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${SITE_CONFIG.email}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-12 text-xl text-primary hover:text-primary/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"
           >
             {SITE_CONFIG.email}
           </a>
