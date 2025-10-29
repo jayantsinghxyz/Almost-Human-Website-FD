@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { useSwipeGesture } from "@/hooks/useSwipeGesture";
@@ -87,43 +86,6 @@ const WorkSection = () => {
             ref={swipeRef}
             className="relative max-w-5xl mx-auto mb-12 touch-pan-y"
           >
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 
-                         w-20 h-10 md:w-36 md:h-14
-                         bg-background/80 backdrop-blur-md
-                         border border-primary/20
-                         hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70
-                         hover:scale-105 hover:shadow-xl hover:shadow-primary/40
-                         rounded-full
-                         flex items-center justify-center
-                         transition-all duration-300
-                         shadow-lg shadow-primary/20
-                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              aria-label="Previous video"
-            >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 
-                         w-20 h-10 md:w-36 md:h-14
-                         bg-background/80 backdrop-blur-md
-                         border border-primary/20
-                         hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70
-                         hover:scale-105 hover:shadow-xl hover:shadow-primary/40
-                         rounded-full
-                         flex items-center justify-center
-                         transition-all duration-300
-                         shadow-lg shadow-primary/20
-                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              aria-label="Next video"
-            >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
-            </button>
-
             <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
               {hasIntersected ? (
                 <>
@@ -186,17 +148,43 @@ const WorkSection = () => {
                 />
               ))}
             </div>
-          </div>
 
-          {/* CTA */}
-          <div className="text-center">
-            <Button
-              size="lg"
-              onClick={() => window.open('mailto:hello@almosthuman.in', '_blank')}
-              className="bg-primary hover:bg-primary/90 text-base sm:text-lg px-6 py-3 sm:px-8 sm:py-4"
-            >
-              Contact Us
-            </Button>
+            {/* Navigation Buttons - Centered */}
+            <div className="flex justify-center items-center gap-3 md:gap-4 mt-8">
+              <button
+                onClick={prevSlide}
+                className="w-14 h-10 md:w-20 md:h-12
+                           bg-background/80 backdrop-blur-md
+                           border border-primary/20
+                           hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70
+                           hover:scale-105 hover:shadow-xl hover:shadow-primary/40
+                           rounded-full
+                           flex items-center justify-center
+                           transition-all duration-300
+                           shadow-lg shadow-primary/20
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                aria-label="Previous video"
+              >
+                <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
+              </button>
+              
+              <button
+                onClick={nextSlide}
+                className="w-14 h-10 md:w-20 md:h-12
+                           bg-background/80 backdrop-blur-md
+                           border border-primary/20
+                           hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70
+                           hover:scale-105 hover:shadow-xl hover:shadow-primary/40
+                           rounded-full
+                           flex items-center justify-center
+                           transition-all duration-300
+                           shadow-lg shadow-primary/20
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                aria-label="Next video"
+              >
+                <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
