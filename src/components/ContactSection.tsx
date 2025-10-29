@@ -189,7 +189,7 @@ const ContactSection = () => {
                 <SelectTrigger id="projectType" className="bg-card/50 border-border focus:border-primary">
                   <SelectValue placeholder="Select project type" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-popover border border-border z-50">
                   {PROJECT_TYPES.map((type) => (
                     <SelectItem key={type.value} value={type.value}>
                       {type.label}
@@ -266,7 +266,7 @@ const ContactSection = () => {
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href={SITE_CONFIG.instagram}
+              href={SITE_CONFIG.twitter}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -275,7 +275,7 @@ const ContactSection = () => {
               <Twitter className="h-5 w-5" />
             </a>
             <a
-              href={SITE_CONFIG.instagram}
+              href={SITE_CONFIG.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
