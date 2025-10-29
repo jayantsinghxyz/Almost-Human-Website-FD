@@ -66,7 +66,7 @@ const WorkSection = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">Our Work</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">Not another AI studio</h2>
           <p className="text-xl text-muted-foreground">
             Pushing the boundaries of AI filmmaking
           </p>
