@@ -140,7 +140,7 @@ const ContactSection = () => {
         <div className="backdrop-blur-xl bg-card/30 border border-border/50 rounded-3xl p-5 sm:p-8 lg:p-12 shadow-2xl">
           <div className="text-center mb-6 sm:mb-8 md:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 sm:mb-4">
-              Let's create something almost human.
+              Let's create something <span className="whitespace-nowrap">almost human.</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground">Your imagination made real.</p>
           </div>
@@ -218,11 +218,11 @@ const ContactSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 type="submit"
                 size="lg"
-                className="flex-1 bg-primary hover:bg-primary/90"
+                className="flex-1 bg-primary hover:bg-primary/90 h-12 sm:h-14 text-base sm:text-lg font-semibold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -239,7 +239,7 @@ const ContactSection = () => {
                 size="lg"
                 variant="outline"
                 onClick={handleBookCall}
-                className="flex-1 border-primary hover:bg-primary/10"
+                className="flex-1 border-primary hover:bg-primary/10 h-12 sm:h-14 text-base sm:text-lg font-semibold"
                 disabled={isSubmitting}
                 aria-label="Book a call on Instagram"
               >
