@@ -61,8 +61,8 @@ const Navigation = () => {
         Skip to main content
       </a>
 
-      {/* Header - Mobile always visible */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 md:hidden ${
+      {/* Header - Always visible */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-background/95 backdrop-blur-lg shadow-lg' : 'bg-gradient-to-b from-background/40 via-background/20 to-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -90,10 +90,10 @@ const Navigation = () => {
         </div>
       </header>
 
-      {/* Full Screen Mobile Menu */}
+      {/* Full Screen Menu */}
       <nav
         id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-background transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-0 z-40 bg-background transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!isMenuOpen}
