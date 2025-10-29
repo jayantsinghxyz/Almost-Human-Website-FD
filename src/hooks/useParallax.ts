@@ -5,8 +5,10 @@ export const useParallax = (speed: number = 0.5) => {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
     
-    if (prefersReducedMotion) {
+    // Disable parallax on mobile for better performance
+    if (prefersReducedMotion || isMobile) {
       return;
     }
 

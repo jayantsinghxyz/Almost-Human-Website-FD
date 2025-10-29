@@ -19,23 +19,30 @@ const Hero = () => {
           <img
             src={heroBlur}
             alt=""
-            className={`absolute inset-0 w-full h-[110vh] object-cover blur-2xl scale-110 transition-opacity duration-500 ${
+            className={`absolute inset-0 w-full h-[110vh] object-cover blur-2xl scale-110 transition-opacity duration-700 ${
               imageLoaded ? 'opacity-0' : 'opacity-100'
             }`}
             loading="eager"
             aria-hidden="true"
           />
-          {/* Main hero image */}
-          <img
-            src={heroBg}
-            alt="Cinematic grainy gradient background in purple and black tones"
-            className={`w-full h-[110vh] object-cover transition-opacity duration-500 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            loading="eager"
-            fetchPriority="high"
-            onLoad={() => setImageLoaded(true)}
-          />
+          {/* Main hero image - responsive loading */}
+          <picture>
+            <source
+              srcSet={heroBg}
+              type="image/png"
+              media="(min-width: 1px)"
+            />
+            <img
+              src={heroBg}
+              alt="Cinematic grainy gradient background in purple and black tones"
+              className={`w-full h-[110vh] object-cover transition-opacity duration-700 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              loading="eager"
+              fetchPriority="high"
+              onLoad={() => setImageLoaded(true)}
+            />
+          </picture>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
       </div>
