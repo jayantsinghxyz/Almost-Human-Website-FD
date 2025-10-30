@@ -20,6 +20,7 @@ const clients = [
 const ClientShowcase = () => {
   const [isPaused, setIsPaused] = useState(false);
   const { targetRef, hasIntersected } = useIntersectionObserver();
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
     <section
@@ -37,6 +38,9 @@ const ClientShowcase = () => {
 
         <div
           className="relative overflow-hidden"
+          role="region"
+          aria-label="Scrolling client logos"
+          tabIndex={0}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onFocus={() => setIsPaused(true)}
@@ -45,7 +49,7 @@ const ClientShowcase = () => {
           <div
             className="flex gap-6 md:gap-8 lg:gap-12"
             style={{
-              animation: "scroll 30s linear infinite",
+              animation: prefersReducedMotion ? 'none' : "scroll 30s linear infinite",
               animationPlayState: isPaused ? 'paused' : 'running',
               width: "fit-content",
             }}
@@ -71,17 +75,6 @@ const ClientShowcase = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
     </section>
   );
 };
