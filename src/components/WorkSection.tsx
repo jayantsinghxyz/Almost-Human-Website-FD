@@ -87,7 +87,7 @@ const WorkSection = () => {
                 <>
                   <iframe
                     className="w-full h-full"
-                    src={`https://www.youtube.com/embed/${currentVideo.id}?controls=1&modestbranding=1&rel=0`}
+                    src={`https://drive.google.com/file/d/${currentVideo.id}/preview`}
                     title={currentVideo.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

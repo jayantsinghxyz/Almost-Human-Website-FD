@@ -39,10 +39,10 @@ export const SHOWCASE_VIDEO = {
   title: "Our Showreel",
 } as const;
 
-// Work Videos (YouTube IDs)
+// Work Videos (Google Drive IDs)
 export const WORK_VIDEOS = [
-  { id: "dQw4w9WgXcQ", title: "Project One" }, // Replace with actual IDs
-  { id: "dQw4w9WgXcQ", title: "Project Two" },
-  { id: "dQw4w9WgXcQ", title: "Project Three" },
-  { id: "dQw4w9WgXcQ", title: "Project Four" },
+  { id: "1Kt-sjR8bkp5EEBFKlekqLHMGW07lUBoP", title: "Project One" },
+  { id: "1zsST6C9bDywLDOWCn1QvulTlGex--IZ4", title: "Project Two" },
+  { id: "1CnfZcjIhRJABJalE6Y_F0-di4cgTOP9M", title: "Project Three" },
+  { id: "12m730hvD7MT53ppdMLOPYJ62KDuTVEqm", title: "Project Four" },
 ] as const;
