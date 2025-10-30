@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const WorkSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const [isHovering, setIsHovering] = useState(false);
   const { targetRef, hasIntersected } = useIntersectionObserver();
   
@@ -15,10 +16,12 @@ const WorkSection = () => {
   }) as React.RefObject<HTMLDivElement>;
 
   const nextSlide = () => {
+    setPlayingVideo(null);
     setCurrentIndex((prev) => (prev + 1) % WORK_VIDEOS.length);
   };
 
   const prevSlide = () => {
+    setPlayingVideo(null);
     setCurrentIndex((prev) => (prev - 1 + WORK_VIDEOS.length) % WORK_VIDEOS.length);
   };
 
@@ -56,7 +59,7 @@ const WorkSection = () => {
     
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [currentIndex, isHovering]);
@@ -87,32 +90,39 @@ const WorkSection = () => {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-              {hasIntersected ? (
-                <>
-                  <iframe
-                    className="w-full h-full"
-                    src={`https://drive.google.com/file/d/${currentVideo.id}/preview`}
-                    title={currentVideo.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </>
+            <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative">
+              {playingVideo === currentIndex ? (
+                <iframe
+                  className="w-full h-full"
+                  src={`https://drive.google.com/file/d/${currentVideo.id}/preview`}
+                  title={currentVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <div
-                    className="w-20 h-20 border-2 border-primary rounded-full flex items-center justify-center"
-                    aria-hidden="true"
+                <>
+                  <img
+                    src={`https://drive.google.com/thumbnail?id=${currentVideo.id}&sz=w1920`}
+                    alt={currentVideo.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <button
+                    onClick={() => setPlayingVideo(currentIndex)}
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all group"
+                    aria-label={`Play ${currentVideo.title}`}
                   >
-                    <svg
-                      className="w-8 h-8 text-primary"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                    </svg>
-                  </div>
-                </div>
+                    <div className="w-20 h-20 md:w-24 md:h-24 border-4 border-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:border-primary transition-all bg-black/50 backdrop-blur-sm">
+                      <svg
+                        className="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-primary transition-colors ml-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                      </svg>
+                    </div>
+                  </button>
+                </>
               )}
             </div>
 
@@ -128,6 +138,7 @@ const WorkSection = () => {
                 <button
                   key={index}
                   onClick={() => {
+                    setPlayingVideo(null);
                     setCurrentIndex(index);
                   }}
                   className={`w-2 h-2 rounded-full transition-all ${
