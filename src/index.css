@@ -215,3 +215,12 @@ body:has(.cursor-custom) * {
     transform: translate(50px, 50px);
   }
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
