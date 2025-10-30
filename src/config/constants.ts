@@ -4,8 +4,8 @@ export const SITE_CONFIG = {
   tagline: "Making AI films feel human",
   email: "Hello@almosthuman.in",
   instagram: "https://www.instagram.com/almosthuman.in/",
-  twitter: "https://twitter.com/almosthuman", // Replace with your actual Twitter URL
-  linkedin: "https://www.linkedin.com/company/almosthuman", // Replace with your actual LinkedIn URL
+  twitter: "https://x.com/Almosthumanin",
+  linkedin: "https://www.linkedin.com/company/almosthuman-in/?viewAsMember=true",
   copyright: "© AlmostHuman 2025 | WLDD",
 } as const;
 
