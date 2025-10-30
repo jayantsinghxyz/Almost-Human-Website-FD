@@ -16,8 +16,6 @@ export interface Video {
 export interface Client {
   name: string;
   logo: string;
-  scale?: number;
-  width?: string;
 }
 
 // Navigation Types

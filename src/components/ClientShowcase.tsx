@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import ClientLogo from "./ClientLogo";
 import amazonLogo from "@/assets/logos/amazon.webp";
@@ -12,20 +12,19 @@ import rapidoLogo from "@/assets/logos/rapido.png";
 import jeevansathiLogo from "@/assets/logos/jeevansathi.png";
 
 const clients = [
-  { name: "Amazon", logo: amazonLogo, width: "240px" },
-  { name: "JioHotstar", logo: hotstarLogo, width: "240px" },
-  { name: "Philips", logo: philipsLogo, width: "280px" },
-  { name: "Tata", logo: tataLogo, width: "240px" },
-  { name: "Myntra", logo: myntraLogo, width: "240px" },
-  { name: "CRED", logo: credLogo, width: "280px" },
-  { name: "IRCTC", logo: irctcLogo, width: "240px" },
-  { name: "Rapido", logo: rapidoLogo, width: "240px" },
-  { name: "Jeevansathi", logo: jeevansathiLogo, width: "240px" },
+  { name: "Amazon", logo: amazonLogo },
+  { name: "JioHotstar", logo: hotstarLogo },
+  { name: "Philips", logo: philipsLogo, scale: 1.2 },
+  { name: "Tata", logo: tataLogo },
+  { name: "Myntra", logo: myntraLogo },
+  { name: "CRED", logo: credLogo, scale: 1.2 },
+  { name: "IRCTC", logo: irctcLogo },
+  { name: "Rapido", logo: rapidoLogo },
+  { name: "Jeevansathi", logo: jeevansathiLogo },
 ];
 
 const ClientShowcase = () => {
   const [isPaused, setIsPaused] = useState(false);
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const { targetRef, hasIntersected } = useIntersectionObserver();
 
   return (
@@ -43,20 +42,18 @@ const ClientShowcase = () => {
         </h2>
 
         <div
-          className="relative overflow-hidden"
-          role="region"
-          aria-label="Scrolling client logos"
-          tabIndex={0}
+          className="relative overflow-visible"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onFocus={() => setIsPaused(true)}
           onBlur={() => setIsPaused(false)}
         >
           <div
-            className="flex gap-6 md:gap-8 lg:gap-12"
+            className={`flex gap-6 md:gap-8 lg:gap-12 ${
+              isPaused ? "[animation-play-state:paused]" : ""
+            }`}
             style={{
-              animation: prefersReducedMotion ? 'none' : "scroll 30s linear infinite",
-              animationPlayState: isPaused ? 'paused' : 'running',
+              animation: "scroll 30s linear infinite",
               width: "fit-content",
             }}
           >
@@ -67,7 +64,7 @@ const ClientShowcase = () => {
                 name={client.name}
                 logo={client.logo}
                 index={index}
-                width={client.width}
+                scale={client.scale}
               />
             ))}
             {/* Duplicate set for seamless loop */}
@@ -77,12 +74,23 @@ const ClientShowcase = () => {
                 name={client.name}
                 logo={client.logo}
                 index={index}
-                width={client.width}
+                scale={client.scale}
               />
             ))}
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   );
 };
