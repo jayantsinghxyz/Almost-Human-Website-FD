@@ -30,7 +30,7 @@ const ClientShowcase = () => {
   return (
     <section
       ref={targetRef as React.RefObject<HTMLElement>}
-      className={`py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background transition-opacity duration-700 relative overflow-hidden ${
+      className={`py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-opacity duration-700 relative overflow-hidden ${
         hasIntersected ? "animate-fade-in" : "opacity-0"
       }`}
       aria-label="Client showcase"
