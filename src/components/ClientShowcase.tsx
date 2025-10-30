@@ -14,10 +14,10 @@ import jeevansathiLogo from "@/assets/logos/jeevansathi.png";
 const clients = [
   { name: "Amazon", logo: amazonLogo },
   { name: "JioHotstar", logo: hotstarLogo },
-  { name: "Philips", logo: philipsLogo },
+  { name: "Philips", logo: philipsLogo, scale: 1.2 },
   { name: "Tata", logo: tataLogo },
   { name: "Myntra", logo: myntraLogo },
-  { name: "CRED", logo: credLogo },
+  { name: "CRED", logo: credLogo, scale: 1.2 },
   { name: "IRCTC", logo: irctcLogo },
   { name: "Rapido", logo: rapidoLogo },
   { name: "Jeevansathi", logo: jeevansathiLogo },
@@ -64,6 +64,7 @@ const ClientShowcase = () => {
                 name={client.name}
                 logo={client.logo}
                 index={index}
+                scale={client.scale}
               />
             ))}
             {/* Duplicate set for seamless loop */}
@@ -73,6 +74,7 @@ const ClientShowcase = () => {
                 name={client.name}
                 logo={client.logo}
                 index={index}
+                scale={client.scale}
               />
             ))}
           </div>
