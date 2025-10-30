@@ -1,22 +1,20 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import ClientLogo from "./ClientLogo";
-import amazonLogo from "@/assets/logos/amazon.webp";
-import hotstarLogo from "@/assets/logos/hotstar.webp";
 import tataLogo from "@/assets/logos/tata.png";
-import myntraLogo from "@/assets/logos/myntra.webp";
 import irctcLogo from "@/assets/logos/irctc.png";
 import rapidoLogo from "@/assets/logos/rapido.png";
 import jeevansathiLogo from "@/assets/logos/jeevansathi.png";
+import philipsLogo from "@/assets/logos/philips-new.png";
+import credLogo from "@/assets/logos/cred-new.png";
 
 const clients = [
-  { name: "Amazon", logo: amazonLogo },
-  { name: "JioHotstar", logo: hotstarLogo },
   { name: "Tata", logo: tataLogo },
-  { name: "Myntra", logo: myntraLogo },
   { name: "IRCTC", logo: irctcLogo },
   { name: "Rapido", logo: rapidoLogo },
   { name: "Jeevansathi", logo: jeevansathiLogo },
+  { name: "Philips", logo: philipsLogo },
+  { name: "CRED", logo: credLogo },
 ];
 
 const ClientShowcase = () => {
@@ -38,18 +36,17 @@ const ClientShowcase = () => {
         </h2>
 
         <div
-          className="relative overflow-visible"
+          className="relative overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onFocus={() => setIsPaused(true)}
           onBlur={() => setIsPaused(false)}
         >
           <div
-            className={`flex gap-6 md:gap-8 lg:gap-12 ${
-              isPaused ? "[animation-play-state:paused]" : ""
-            }`}
+            className="flex gap-6 md:gap-8 lg:gap-12"
             style={{
               animation: "scroll 30s linear infinite",
+              animationPlayState: isPaused ? 'paused' : 'running',
               width: "fit-content",
             }}
           >
