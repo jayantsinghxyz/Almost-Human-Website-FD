@@ -3,10 +3,8 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import ClientLogo from "./ClientLogo";
 import amazonLogo from "@/assets/logos/amazon.webp";
 import hotstarLogo from "@/assets/logos/hotstar.webp";
-import philipsLogo from "@/assets/logos/philips.png";
 import tataLogo from "@/assets/logos/tata.png";
 import myntraLogo from "@/assets/logos/myntra.webp";
-import credLogo from "@/assets/logos/cred.png";
 import irctcLogo from "@/assets/logos/irctc.png";
 import rapidoLogo from "@/assets/logos/rapido.png";
 import jeevansathiLogo from "@/assets/logos/jeevansathi.png";
@@ -14,10 +12,8 @@ import jeevansathiLogo from "@/assets/logos/jeevansathi.png";
 const clients = [
   { name: "Amazon", logo: amazonLogo },
   { name: "JioHotstar", logo: hotstarLogo },
-  { name: "Philips", logo: philipsLogo, scale: 1.2 },
   { name: "Tata", logo: tataLogo },
   { name: "Myntra", logo: myntraLogo },
-  { name: "CRED", logo: credLogo, scale: 1.2 },
   { name: "IRCTC", logo: irctcLogo },
   { name: "Rapido", logo: rapidoLogo },
   { name: "Jeevansathi", logo: jeevansathiLogo },
@@ -64,7 +60,6 @@ const ClientShowcase = () => {
                 name={client.name}
                 logo={client.logo}
                 index={index}
-                scale={client.scale}
               />
             ))}
             {/* Duplicate set for seamless loop */}
@@ -74,7 +69,6 @@ const ClientShowcase = () => {
                 name={client.name}
                 logo={client.logo}
                 index={index}
-                scale={client.scale}
               />
             ))}
           </div>
