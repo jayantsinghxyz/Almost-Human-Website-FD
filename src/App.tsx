@@ -23,7 +23,6 @@ const AppContent = () => {
   return (
     <>
       <ScrollProgressBar />
-      <CustomCursor />
       <PullToRefreshIndicator pullDistance={pullDistance} isRefreshing={isRefreshing} />
       <BrowserRouter>
         <Routes>
