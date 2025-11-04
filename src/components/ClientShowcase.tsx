@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import ClientLogo from "./ClientLogo";
 import tataLogo from "@/assets/logos/tata.png";
@@ -24,7 +23,6 @@ const clients = [
 ];
 
 const ClientShowcase = () => {
-  const [isPaused, setIsPaused] = useState(false);
   const { targetRef, hasIntersected } = useIntersectionObserver();
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -46,17 +44,11 @@ const ClientShowcase = () => {
           className="relative overflow-hidden"
           role="region"
           aria-label="Scrolling client logos"
-          tabIndex={0}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onFocus={() => setIsPaused(true)}
-          onBlur={() => setIsPaused(false)}
         >
           <div
             className="flex gap-6 md:gap-8 lg:gap-12"
             style={{
               animation: prefersReducedMotion ? 'none' : "scroll 40s linear infinite",
-              animationPlayState: isPaused ? 'paused' : 'running',
               width: "fit-content",
             }}
           >
