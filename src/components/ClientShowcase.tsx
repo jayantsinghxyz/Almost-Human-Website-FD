@@ -46,10 +46,9 @@ const ClientShowcase = () => {
           aria-label="Scrolling client logos"
         >
           <div
-            className="flex gap-3 md:gap-4 lg:gap-6"
+            className="inline-flex gap-3 md:gap-4 lg:gap-6"
             style={{
-              animation: prefersReducedMotion ? 'none' : "scroll 10s linear infinite",
-              width: "fit-content",
+              animation: prefersReducedMotion ? 'none' : "scroll 28s linear infinite",
             }}
           >
             {/* First set */}
