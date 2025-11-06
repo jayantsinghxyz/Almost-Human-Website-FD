@@ -35,7 +35,7 @@ const ClientShowcase = () => {
       aria-label="Client showcase"
     >
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-10 lg:mb-12 text-white">
           Trusted by Leading Brands
         </h2>
@@ -46,7 +46,7 @@ const ClientShowcase = () => {
           aria-label="Scrolling client logos"
         >
           <div
-            className="flex gap-4 md:gap-6 lg:gap-8"
+            className="flex gap-3 md:gap-4 lg:gap-6"
             style={{
               animation: prefersReducedMotion ? 'none' : "scroll 40s linear infinite",
               width: "fit-content",
