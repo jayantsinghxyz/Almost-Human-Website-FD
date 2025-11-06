@@ -25,17 +25,17 @@ const VideoShowcase = () => {
   return (
     <section
       ref={targetRef as React.RefObject<HTMLElement>}
-      className="relative w-full min-h-[60vh] md:h-screen bg-black"
+      className="relative w-full h-screen bg-black"
       aria-label="Video showreel"
     >
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0">
         {hasIntersected && (
           <>
             <video
               ref={videoRef}
               src={showcaseReel}
               poster={showcasePoster}
-              className="w-full h-full object-contain md:object-cover"
+              className="w-full h-full object-cover"
               autoPlay={!prefersReducedMotion}
               loop
               muted

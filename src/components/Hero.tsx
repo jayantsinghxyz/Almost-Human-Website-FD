@@ -29,7 +29,7 @@ const Hero = () => {
             loop
             muted
             playsInline
-            className={`w-full h-full md:h-[110vh] object-cover object-center transition-opacity duration-700 ${
+            className={`w-full h-[110vh] object-cover transition-opacity duration-700 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoadedData={() => setVideoLoaded(true)}
@@ -47,9 +47,9 @@ const Hero = () => {
         <img 
           src={logo} 
           alt="AlmostHuman" 
-          className="w-[280px] sm:w-[400px] md:w-[700px] lg:w-[1000px] xl:w-[1200px] 2xl:w-[1400px] h-auto mx-auto mb-4 sm:mb-6 lg:mb-8"
+          className="w-[360px] sm:w-[500px] md:w-[700px] lg:w-[1000px] xl:w-[1200px] 2xl:w-[1400px] h-auto mx-auto mb-6 sm:mb-6 lg:mb-8"
         />
-        <p className="text-xl sm:text-2xl md:text-4xl lg:text-5xl text-white font-light max-w-4xl mx-auto min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem]">
+        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-light max-w-4xl mx-auto min-h-[3rem] sm:min-h-[3.5rem]">
           {displayedText}
         </p>
       </div>
