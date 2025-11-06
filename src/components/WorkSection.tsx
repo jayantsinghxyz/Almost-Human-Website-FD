@@ -1,70 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { useSwipeGesture } from "@/hooks/useSwipeGesture";
 import { WORK_VIDEOS } from "@/config/constants";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const WorkSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
-  const [isHovering, setIsHovering] = useState(false);
   const { targetRef, hasIntersected } = useIntersectionObserver();
-  
-  const swipeRef = useSwipeGesture({
-    onSwipeLeft: () => nextSlide(),
-    onSwipeRight: () => prevSlide(),
-  }) as React.RefObject<HTMLDivElement>;
-
-  const nextSlide = () => {
-    setPlayingVideo(null);
-    setCurrentIndex((prev) => (prev + 1) % WORK_VIDEOS.length);
-  };
-
-  const prevSlide = () => {
-    setPlayingVideo(null);
-    setCurrentIndex((prev) => (prev - 1 + WORK_VIDEOS.length) % WORK_VIDEOS.length);
-  };
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      const offset = 80; // Account for fixed header
-      const elementPosition = contactSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        prevSlide();
-      } else if (e.key === "ArrowRight") {
-        nextSlide();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
-  // Auto-scroll carousel every 5 seconds (pause on hover)
-  useEffect(() => {
-    if (isHovering) return; // Don't auto-scroll when hovering
-    
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [currentIndex, isHovering]);
-
-  const currentVideo = WORK_VIDEOS[currentIndex];
 
   return (
     <section
@@ -83,112 +23,55 @@ const WorkSection = () => {
             </p>
           </div>
 
-          {/* Video Carousel */}
-          <div 
-            ref={swipeRef}
-            className="relative max-w-5xl mx-auto mb-12 touch-pan-y"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative">
-              {playingVideo === currentIndex ? (
-                <iframe
-                  className="w-full h-full"
-                  src={`https://drive.google.com/file/d/${currentVideo.id}/preview`}
-                  title={currentVideo.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <>
-                  <img
-                    src={`https://drive.google.com/thumbnail?id=${currentVideo.id}&sz=w1920`}
-                    alt={currentVideo.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <button
-                    onClick={() => setPlayingVideo(currentIndex)}
-                    className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all group"
-                    aria-label={`Play ${currentVideo.title}`}
-                  >
-                    <div className="w-20 h-20 md:w-24 md:h-24 border-4 border-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:border-primary transition-all bg-black/50 backdrop-blur-sm">
-                      <svg
-                        className="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-primary transition-colors ml-1"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {WORK_VIDEOS.map((video, index) => (
+              <div
+                key={video.id}
+                className="group"
+              >
+                <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative mb-4">
+                  {playingVideo === index ? (
+                    <iframe
+                      className="w-full h-full"
+                      src={`https://drive.google.com/file/d/${video.id}/preview`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <>
+                      <img
+                        src={`https://drive.google.com/thumbnail?id=${video.id}&sz=w1920`}
+                        alt={video.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <button
+                        onClick={() => setPlayingVideo(index)}
+                        className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all group"
+                        aria-label={`Play ${video.title}`}
                       >
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                      </svg>
-                    </div>
-                  </button>
-                </>
-              )}
-            </div>
-
-
-            {/* Video Title */}
-            <div className="text-center mt-6">
-              <h3 className="text-2xl font-semibold">{currentVideo.title}</h3>
-            </div>
-
-            {/* Dots Navigation */}
-            <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8" role="tablist">
-              {WORK_VIDEOS.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setPlayingVideo(null);
-                    setCurrentIndex(index);
-                  }}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex
-                      ? "bg-primary w-8"
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                  }`}
-                  aria-label={`Go to video ${index + 1}`}
-                  role="tab"
-                  aria-selected={index === currentIndex}
-                />
-              ))}
-            </div>
-
-            {/* Navigation Buttons - Centered */}
-            <div className="flex justify-center items-center gap-3 md:gap-4 mt-6 md:mt-8">
-              <button
-                onClick={prevSlide}
-                className="w-11 h-11 md:w-16 md:h-16
-                           bg-background/80 backdrop-blur-md
-                           border border-primary/20
-                           hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70
-                           hover:scale-105 hover:shadow-xl hover:shadow-primary/40
-                           rounded-full
-                           flex items-center justify-center
-                           transition-all duration-300
-                           shadow-lg shadow-primary/20
-                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label="Previous video"
-              >
-                <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
-              </button>
-              
-              <button
-                onClick={nextSlide}
-                className="w-11 h-11 md:w-16 md:h-16
-                           bg-background/80 backdrop-blur-md
-                           border border-primary/20
-                           hover:bg-gradient-to-r hover:from-primary/90 hover:to-primary/70
-                           hover:scale-105 hover:shadow-xl hover:shadow-primary/40
-                           rounded-full
-                           flex items-center justify-center
-                           transition-all duration-300
-                           shadow-lg shadow-primary/20
-                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label="Next video"
-              >
-                <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
-              </button>
-            </div>
+                        <div className="w-16 h-16 md:w-20 md:h-20 border-4 border-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:border-primary transition-all bg-black/50 backdrop-blur-sm">
+                          <svg
+                            className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:text-primary transition-colors ml-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                        </div>
+                      </button>
+                    </>
+                  )}
+                </div>
+                
+                <div className="text-left">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">{video.title}</h3>
+                  <p className="text-base md:text-lg text-muted-foreground">{video.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

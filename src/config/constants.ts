@@ -41,8 +41,8 @@ export const SHOWCASE_VIDEO = {
 
 // Work Videos (Google Drive IDs)
 export const WORK_VIDEOS = [
-  { id: "1Kt-sjR8bkp5EEBFKlekqLHMGW07lUBoP", title: "Project One" },
-  { id: "1zsST6C9bDywLDOWCn1QvulTlGex--IZ4", title: "Project Two" },
-  { id: "1CnfZcjIhRJABJalE6Y_F0-di4cgTOP9M", title: "Project Three" },
-  { id: "12m730hvD7MT53ppdMLOPYJ62KDuTVEqm", title: "Project Four" },
+  { id: "1Kt-sjR8bkp5EEBFKlekqLHMGW07lUBoP", title: "IRCTC", description: "Branding, Web Design and Development" },
+  { id: "1zsST6C9bDywLDOWCn1QvulTlGex--IZ4", title: "MYNTRA", description: "Branding, Web Design and Development" },
+  { id: "1CnfZcjIhRJABJalE6Y_F0-di4cgTOP9M", title: "PHILIPS", description: "Branding, Web Design and Development" },
+  { id: "12m730hvD7MT53ppdMLOPYJ62KDuTVEqm", title: "TATA", description: "Branding, Web Design and Development" },
 ] as const;
