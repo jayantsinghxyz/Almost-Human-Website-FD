@@ -16,11 +16,11 @@ const Hero = () => {
   });
 
   return (
-    <header className="relative min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden">
+    <header className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background video with parallax overlay */}
       <div className="absolute inset-0" aria-hidden="true">
         <div
-          className="absolute inset-0 will-change-transform aspect-video md:aspect-auto"
+          className="absolute inset-0 will-change-transform"
           style={{ transform: `translate3d(0, ${parallaxOffset}px, 0)` }}
         >
           <video
@@ -29,7 +29,7 @@ const Hero = () => {
             loop
             muted
             playsInline
-            className={`w-full h-full md:h-[110vh] object-contain md:object-cover transition-opacity duration-700 ${
+            className={`w-full h-full md:h-[110vh] object-cover object-center transition-opacity duration-700 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoadedData={() => setVideoLoaded(true)}
