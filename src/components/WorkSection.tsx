@@ -49,7 +49,7 @@ const WorkSection = () => {
                       />
                       <button
                         onClick={() => setPlayingVideo(index)}
-                        className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all group"
+                        className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all group opacity-0 group-hover:opacity-100"
                         aria-label={`Play ${video.title}`}
                       >
                         <div className="w-16 h-16 md:w-20 md:h-20 border-4 border-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:border-primary transition-all bg-black/50 backdrop-blur-sm">
