@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Mondia';
-  src: url('/fonts/Mondia.otf') format('opentype');
-  font-weight: 400;
+  font-family: 'JUST Sans';
+  src: url('/fonts/JUST_Sans_Medium.woff2') format('woff2');
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'MondiaBold';
-  src: url('/fonts/MondiaBold.otf') format('opentype');
+  font-family: 'AwesomeSerif';
+  src: url('/fonts/AwesomeSerif-BoldRegular.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -76,14 +76,14 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Mondia', system-ui, -apple-system, sans-serif;
-    font-weight: 400;
+    font-family: 'JUST Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
     letter-spacing: 0.01em;
     line-height: 1.6;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'MondiaBold', system-ui, -apple-system, sans-serif;
+    font-family: 'AwesomeSerif', Georgia, serif;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;

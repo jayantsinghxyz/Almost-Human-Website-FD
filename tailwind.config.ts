@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Mondia', 'system-ui', 'sans-serif'],
-        mondia: ['Mondia', 'system-ui', 'sans-serif'],
-        'mondia-bold': ['MondiaBold', 'system-ui', 'sans-serif'],
+        sans: ['JUST Sans', 'system-ui', 'sans-serif'],
+        serif: ['AwesomeSerif', 'Georgia', 'serif'],
+        'just-sans': ['JUST Sans', 'system-ui', 'sans-serif'],
+        'awesome-serif': ['AwesomeSerif', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
