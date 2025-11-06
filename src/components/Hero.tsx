@@ -1,5 +1,4 @@
-import heroBg from "@/assets/hero-bg.webp";
-import heroBlur from "@/assets/hero-bg-blur.jpg";
+import heroVideo from "@/assets/home-page-video.mp4";
 import logo from "@/assets/logo.svg";
 import { useParallax } from "@/hooks/useParallax";
 import { useTypewriter } from "@/hooks/useTypewriter";
@@ -8,7 +7,7 @@ import GridBackground from "./GridBackground";
 import ScrollIndicator from "./ScrollIndicator";
 
 const Hero = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const parallaxOffset = useParallax(0.5);
   const { displayedText } = useTypewriter({ 
     text: "Making AI films feel human", 
@@ -18,35 +17,25 @@ const Hero = () => {
 
   return (
     <header className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Background image with parallax overlay */}
+      {/* Background video with parallax overlay */}
       <div className="absolute inset-0" aria-hidden="true">
         <div
           className="absolute inset-0 will-change-transform"
           style={{ transform: `translate3d(0, ${parallaxOffset}px, 0)` }}
         >
-          {/* Blur placeholder - loads instantly */}
-          <img
-            src={heroBlur}
-            alt=""
-            className={`absolute inset-0 w-full h-[110vh] object-cover blur-2xl scale-110 transition-opacity duration-700 ${
-              imageLoaded ? 'opacity-0' : 'opacity-100'
-            }`}
-            loading="eager"
-            aria-hidden="true"
-          />
-          {/* Main hero image */}
-          <img
-            src={heroBg}
-            alt="Cinematic grainy gradient background in purple and black tones"
+          <video
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className={`w-full h-[110vh] object-cover transition-opacity duration-700 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
+              videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
-            loading="eager"
-            fetchPriority="high"
-            onLoad={() => setImageLoaded(true)}
+            onLoadedData={() => setVideoLoaded(true)}
             onError={() => {
-              console.error('Failed to load hero image');
-              setImageLoaded(true); // Show blur image as fallback
+              console.error('Failed to load hero video');
+              setVideoLoaded(true);
             }}
           />
         </div>
