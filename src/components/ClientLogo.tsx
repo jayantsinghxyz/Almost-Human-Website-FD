@@ -15,7 +15,7 @@ const ClientLogo = ({ name, logo, index, scale = 1 }: ClientLogoProps) => {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="flex-shrink-0 w-[28%] h-20 md:w-[30%] md:h-24 lg:w-[18%] lg:h-32 flex items-center justify-center transition-all duration-300 hover:z-10 rounded-2xl overflow-hidden"
+      className="flex-shrink-0 w-[30%] h-20 md:w-[22%] md:h-24 lg:w-[17%] lg:h-32 flex items-center justify-center transition-all duration-300 hover:z-10 rounded-2xl overflow-hidden"
       style={{
         transform: `perspective(1000px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(${tilt.scale * scale})`,
         transformStyle: 'preserve-3d',
