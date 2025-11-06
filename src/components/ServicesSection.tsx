@@ -34,7 +34,7 @@ const services: Service[] = [
     gridClass: "md:col-span-1 md:row-span-2",
   },
   {
-    title: "World-Building & Lore Creation",
+    title: "World-Building",
     image: worldsImg,
     gridClass: "md:col-span-2 md:row-span-1",
   },
