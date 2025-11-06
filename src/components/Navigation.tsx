@@ -63,7 +63,7 @@ const Navigation = () => {
 
       {/* Header - Always visible */}
       <header className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 h-16 md:h-20 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-lg shadow-lg' : 'bg-gradient-to-b from-background/40 via-background/20 to-transparent'
+        isScrolled ? 'bg-background/95 backdrop-blur-lg shadow-lg border-b border-border' : 'bg-gradient-to-b from-background/60 via-background/30 to-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex justify-between items-center">
           <button
@@ -93,7 +93,7 @@ const Navigation = () => {
       {/* Full Screen Menu */}
       <nav
         id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-background transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-background/98 backdrop-blur-sm transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!isMenuOpen}

@@ -8,45 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
+    /* Base colors - White background, Black text */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 98%;
+    /* Primary colors - Darker purple for visibility on light theme */
+    --primary: 262 83% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 262 60% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 262 60% 85%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 262 83% 65%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 262 83% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 262 83% 58%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 262 83% 45%;
 
     --radius: 0.75rem;
 
-    /* Custom gradients and effects */
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(262 60% 35%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 3%) 0%, hsl(262 60% 8%) 100%);
-    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 3% / 0.8) 100%);
-    --gradient-blue: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(220 90% 56%) 100%);
-    --gradient-pink: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(330 85% 60%) 100%);
+    /* Custom gradients - Update for light theme */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 45%) 0%, hsl(262 60% 60%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(262 60% 95%) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 100% / 0.8) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(262 83% 45%) 0%, hsl(220 90% 50%) 100%);
+    --gradient-pink: linear-gradient(135deg, hsl(262 83% 45%) 0%, hsl(330 85% 55%) 100%);
     
-    /* Grain texture */
-    --grain-opacity: 0.08;
+    /* Grain texture - Lighter for white background */
+    --grain-opacity: 0.03;
   }
 }
 
@@ -57,7 +59,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Advercase', system-ui, -apple-system, sans-serif;
   }
 
   html {
@@ -95,15 +97,15 @@ All colors MUST be HSL.
 
   /* Text shadows and glows */
   .text-glow-sm {
-    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+    text-shadow: 0 0 8px hsl(var(--primary) / 0.3);
   }
 
   .text-glow-md {
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.3);
+    text-shadow: 0 0 15px hsl(var(--primary) / 0.4), 0 0 25px hsl(var(--primary) / 0.2);
   }
 
   .text-glow-lg {
-    text-shadow: 0 0 30px hsl(var(--primary) / 0.7), 0 0 60px hsl(var(--primary) / 0.4);
+    text-shadow: 0 0 25px hsl(var(--primary) / 0.5), 0 0 50px hsl(var(--primary) / 0.3);
   }
 
   /* Hover effects */
@@ -113,7 +115,7 @@ All colors MUST be HSL.
 
   .hover-lift:hover {
     @apply scale-105 -translate-y-1;
-    box-shadow: 0 10px 30px hsl(var(--primary) / 0.3);
+    box-shadow: 0 10px 30px hsl(var(--primary) / 0.2);
   }
 
   .hover-glow {
@@ -121,14 +123,14 @@ All colors MUST be HSL.
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.2);
   }
 
   /* Grid pattern */
   .bg-grid-pattern {
     background-image: 
-      linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+      linear-gradient(to right, hsl(var(--primary) / 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 }
@@ -149,6 +151,7 @@ All colors MUST be HSL.
 *:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
+  background-color: hsl(var(--primary) / 0.1);
 }
 
 /* Touch action utilities */
@@ -184,15 +187,15 @@ body:has(.cursor-custom) * {
 
 /* Enhanced cursor glow effects */
 .cursor-glow {
-  filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.9))
-          drop-shadow(0 0 40px hsl(var(--primary) / 0.5));
+  filter: drop-shadow(0 0 15px hsl(var(--primary) / 0.6))
+          drop-shadow(0 0 30px hsl(var(--primary) / 0.3));
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
 .cursor-glow-intense {
-  filter: drop-shadow(0 0 30px hsl(var(--primary)))
-          drop-shadow(0 0 50px hsl(var(--primary) / 0.7));
+  filter: drop-shadow(0 0 25px hsl(var(--primary) / 0.8))
+          drop-shadow(0 0 45px hsl(var(--primary) / 0.5));
   transform: translateZ(0);
   backface-visibility: hidden;
 }

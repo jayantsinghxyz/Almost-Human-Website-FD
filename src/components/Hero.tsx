@@ -50,7 +50,7 @@ const Hero = () => {
             }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white/85" />
         <GridBackground />
       </div>
 
@@ -61,7 +61,7 @@ const Hero = () => {
           alt="AlmostHuman" 
           className="w-[360px] sm:w-[500px] md:w-[700px] lg:w-[1000px] xl:w-[1200px] 2xl:w-[1400px] h-auto mx-auto mb-6 sm:mb-6 lg:mb-8"
         />
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/80 font-light max-w-4xl mx-auto min-h-[3rem] sm:min-h-[3.5rem]">
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/70 font-light max-w-4xl mx-auto min-h-[3rem] sm:min-h-[3.5rem]">
           {displayedText}
         </p>
       </div>
