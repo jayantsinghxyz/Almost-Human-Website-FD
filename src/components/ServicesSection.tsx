@@ -54,7 +54,7 @@ const ServicesSection = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-3 sm:mb-4 animate-fade-in">
             Made by <br className="sm:hidden" />Almost Human
           </h2>
-          <p className="text-center text-base sm:text-lg md:text-xl max-w-4xl mx-auto text-muted-foreground mb-8 sm:mb-12 md:mb-16 text-balance">
+          <p className="text-center text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto text-muted-foreground mb-8 sm:mb-12 md:mb-16 text-balance">
             We are a next-gen creative studio that blends emotion, design, and AI to craft stories that feel alive.
             From films and characters to full-scale digital worlds, we build experiences that move hearts and pixels alike.
           </p>
@@ -102,7 +102,7 @@ const ServicesSection = () => {
                     aria-labelledby={`service-title-${index}`}
                   >
                     <div className="px-6 pb-6 pt-2 sm:px-8 sm:pb-8 sm:pt-3 md:px-10 md:pb-10 md:pt-4 lg:px-12 lg:pb-12 lg:pt-5 bg-gradient-to-br from-primary/10 to-accent/5">
-                      <p className="text-base sm:text-lg md:text-xl leading-relaxed text-balance animate-fade-in">
+                      <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-balance animate-fade-in">
                         {service.description}
                       </p>
                     </div>

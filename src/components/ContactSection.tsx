@@ -142,7 +142,7 @@ const ContactSection = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-white">
               Let's create something <span className="whitespace-nowrap">almost human.</span>
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-white/70">Your imagination made real.</p>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/70">Your imagination made real.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6 mb-6 sm:mb-8" aria-label="Contact form">
