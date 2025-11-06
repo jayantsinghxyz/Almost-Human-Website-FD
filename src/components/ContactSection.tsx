@@ -251,16 +251,16 @@ const ContactSection = () => {
       </div>
 
       {/* Footer */}
-      <footer className="mt-12 sm:mt-16 md:mt-20 pt-6 sm:pt-8 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-muted-foreground text-sm">{SITE_CONFIG.copyright}</div>
+      <footer className="mt-12 sm:mt-16 md:mt-20 pt-6 sm:pt-8 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6 py-6">
+          <div className="text-white text-sm">{SITE_CONFIG.copyright}</div>
 
           <div className="flex gap-6">
             <a
               href={SITE_CONFIG.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-white hover:text-white/70 transition-colors"
               aria-label="Instagram"
             >
               <Instagram className="h-5 w-5" />
@@ -269,7 +269,7 @@ const ContactSection = () => {
               href={SITE_CONFIG.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-white hover:text-white/70 transition-colors"
               aria-label="X (formerly Twitter)"
             >
               <svg 
@@ -285,7 +285,7 @@ const ContactSection = () => {
               href={SITE_CONFIG.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-white hover:text-white/70 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
