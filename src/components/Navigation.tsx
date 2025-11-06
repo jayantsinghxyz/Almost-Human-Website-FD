@@ -63,12 +63,12 @@ const Navigation = () => {
 
       {/* Header - Always visible */}
       <header className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 h-16 md:h-20 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-lg shadow-lg border-b border-border' : 'bg-gradient-to-b from-background/60 via-background/30 to-transparent'
+        isScrolled ? 'bg-background border-b border-border' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex justify-between items-center">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl sm:text-2xl font-bold hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"
+            className="text-xl sm:text-2xl font-bold text-white hover:text-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"
             aria-label="Go to top"
           >
             {SITE_CONFIG.name}
@@ -76,7 +76,7 @@ const Navigation = () => {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 hover:text-primary rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="p-2 text-white hover:text-white/80 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"

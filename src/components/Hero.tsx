@@ -60,7 +60,7 @@ const Hero = () => {
           alt="AlmostHuman" 
           className="w-[360px] sm:w-[500px] md:w-[700px] lg:w-[1000px] xl:w-[1200px] 2xl:w-[1400px] h-auto mx-auto mb-6 sm:mb-6 lg:mb-8"
         />
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/70 font-light max-w-4xl mx-auto min-h-[3rem] sm:min-h-[3.5rem]">
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-light max-w-4xl mx-auto min-h-[3rem] sm:min-h-[3.5rem]">
           {displayedText}
         </p>
       </div>

@@ -222,7 +222,7 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="flex-1 bg-primary hover:bg-primary/90 h-12 md:h-14 text-lg sm:text-lg font-bold"
+                className="flex-1 bg-white text-foreground hover:bg-white/90 h-12 md:h-14 text-lg sm:text-lg font-bold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -239,7 +239,7 @@ const ContactSection = () => {
                 size="lg"
                 variant="outline"
                 onClick={handleBookCall}
-                className="flex-1 border-primary hover:bg-primary/10 h-12 md:h-14 text-lg sm:text-lg font-bold"
+                className="flex-1 border-2 border-white text-white hover:bg-white hover:text-foreground h-12 md:h-14 text-lg sm:text-lg font-bold"
                 disabled={isSubmitting}
                 aria-label="Book a call on Instagram"
               >
