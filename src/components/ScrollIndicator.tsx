@@ -32,7 +32,7 @@ const ScrollIndicator = () => {
       }`}
       aria-label="Scroll to content"
     >
-      <ChevronDown className="w-8 h-8 text-foreground/80 animate-bounce-slow" />
+      <ChevronDown className="w-8 h-8 text-white animate-bounce-slow" />
     </button>
   );
 };
