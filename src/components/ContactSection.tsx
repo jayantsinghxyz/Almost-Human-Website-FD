@@ -10,7 +10,6 @@ import { contactFormSchema, sanitizeInput } from "@/lib/formValidation";
 import { SITE_CONFIG, FORM_CONFIG, PROJECT_TYPES } from "@/config/constants";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import type { ContactFormData } from "@/types";
-import Aurora from "./Aurora";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -252,14 +251,8 @@ const ContactSection = () => {
       </div>
 
       {/* Footer */}
-      <footer className="relative mt-12 sm:mt-16 md:mt-20 pt-6 sm:pt-8 bg-black overflow-hidden">
-        <Aurora
-          colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
-          blend={0.5}
-          amplitude={1.0}
-          speed={0.5}
-        />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6 py-6">
+      <footer className="mt-12 sm:mt-16 md:mt-20 pt-6 sm:pt-8 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6 py-6">
           <div className="text-white text-sm">{SITE_CONFIG.copyright}</div>
 
           <div className="flex gap-6">
