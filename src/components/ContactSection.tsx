@@ -125,7 +125,7 @@ const ContactSection = () => {
   };
 
   const handleBookCall = () => {
-    window.open(SITE_CONFIG.instagram, "_blank");
+    window.open("https://calendly.com/almosthumandotin/30min", "_blank");
   };
 
   return (
