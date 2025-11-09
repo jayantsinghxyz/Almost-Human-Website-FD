@@ -1,14 +1,13 @@
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import ClientLogo from "./ClientLogo";
-import tataLogo from "@/assets/logos/tata.png";
-import irctcLogo from "@/assets/logos/irctc.png";
-import rapidoLogo from "@/assets/logos/rapido.png";
-import jeevansathiLogo from "@/assets/logos/jeevansathi.png";
-import philipsLogo from "@/assets/logos/philips-new.png";
-import credLogo from "@/assets/logos/cred-new.png";
-import myntraLogo from "@/assets/logos/myntra.png";
-import primeLogo from "@/assets/logos/prime.png";
-import hotstarLogo from "@/assets/logos/hotstar.png";
+import tataLogo from "@/assets/logos/tata.svg";
+import irctcLogo from "@/assets/logos/irctc.svg";
+import rapidoLogo from "@/assets/logos/rapido.svg";
+import jeevansathiLogo from "@/assets/logos/jeevansathi.svg";
+import philipsLogo from "@/assets/logos/philips.svg";
+import credLogo from "@/assets/logos/cred.svg";
+import myntraLogo from "@/assets/logos/myntra.svg";
+import jiohotstarLogo from "@/assets/logos/jiohotstar.svg";
 
 const clients = [
   { name: "Tata", logo: tataLogo },
@@ -18,8 +17,7 @@ const clients = [
   { name: "Philips", logo: philipsLogo },
   { name: "CRED", logo: credLogo },
   { name: "Myntra", logo: myntraLogo },
-  { name: "Amazon Prime Video", logo: primeLogo },
-  { name: "Disney+ Hotstar", logo: hotstarLogo },
+  { name: "JioHotstar", logo: jiohotstarLogo },
 ];
 
 const ClientShowcase = () => {

@@ -26,7 +26,7 @@ const ClientLogo = ({ name, logo, index, scale = 1 }: ClientLogoProps) => {
       <img
         src={logo}
         alt={`${name} logo`}
-        className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all"
+        className="w-full h-full object-contain filter brightness-100 hover:brightness-125 transition-all px-2 md:px-3 lg:px-4"
         loading="lazy"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
