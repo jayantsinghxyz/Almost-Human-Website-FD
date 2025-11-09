@@ -13,8 +13,8 @@ const WorkSection = () => {
       className="py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 gradient-vintage"
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="bg-transparent p-6 sm:p-8 md:p-10 lg:p-12">
-          <div className="text-center mb-12">
+        <div className="bg-transparent p-4 sm:p-6 md:p-8">
+          <div className="text-center mb-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Not Another<br className="sm:hidden" /> AI Studio
             </h2>
@@ -24,13 +24,13 @@ const WorkSection = () => {
           </div>
 
           {/* Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {WORK_VIDEOS.map((video, index) => (
               <div
                 key={video.id}
                 className="group"
               >
-                <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative mb-4">
+                <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative mb-3">
                   {playingVideo === index ? (
                     <iframe
                       className="w-full h-full"
@@ -49,7 +49,7 @@ const WorkSection = () => {
                       />
                       <button
                         onClick={() => setPlayingVideo(index)}
-                        className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all group opacity-0 group-hover:opacity-100"
+                        className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/40 transition-all"
                         aria-label={`Play ${video.title}`}
                       >
                         <svg
@@ -65,8 +65,7 @@ const WorkSection = () => {
                 </div>
                 
                 <div className="text-left">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">{video.title}</h3>
-                  <p className="text-lg md:text-xl text-muted-foreground">{video.description}</p>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">{video.title}</h3>
                 </div>
               </div>
             ))}
