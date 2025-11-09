@@ -17,7 +17,7 @@ const clients = [
   { name: "Philips", logo: philipsLogo, scale: 0.5 },
   { name: "CRED", logo: credLogo, scale: 0.85 },
   { name: "Myntra", logo: myntraLogo, scale: 0.6 },
-  { name: "JioHotstar", logo: jiohotstarLogo, scale: 0.55 },
+  { name: "JioHotstar", logo: jiohotstarLogo, scale: 0.60 },
 ];
 
 const ClientShowcase = () => {
