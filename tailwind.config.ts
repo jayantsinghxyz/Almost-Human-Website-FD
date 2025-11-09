@@ -15,8 +15,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['JUST Sans', 'system-ui', 'sans-serif'],
-        serif: ['AwesomeSerif', 'Georgia', 'serif'],
+        serif: ['Erstoria', 'Georgia', 'serif'],
         'just-sans': ['JUST Sans', 'system-ui', 'sans-serif'],
+        'erstoria': ['Erstoria', 'Georgia', 'serif'],
         'awesome-serif': ['AwesomeSerif', 'Georgia', 'serif'],
       },
       colors: {

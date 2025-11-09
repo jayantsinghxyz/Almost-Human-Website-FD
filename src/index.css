@@ -18,6 +18,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Erstoria';
+  src: url('/fonts/Erstoria.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -83,8 +91,8 @@ All colors MUST be HSL.
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'AwesomeSerif', Georgia, serif;
-    font-weight: 700;
+    font-family: 'Erstoria', Georgia, serif;
+    font-weight: normal;
     letter-spacing: -0.02em;
     line-height: 1.2;
   }
