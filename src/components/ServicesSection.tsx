@@ -2,6 +2,7 @@ import filmsImg from "@/assets/services/films-new.png";
 import animationImg from "@/assets/services/animation-new.png";
 import animationVideo from "@/assets/services/animation-video.mp4";
 import socialImg from "@/assets/services/social-new.png";
+import socialVideo from "@/assets/services/social-video.mp4";
 import charactersImg from "@/assets/services/character-design-new.png";
 import worldsImg from "@/assets/services/worlds-new.png";
 import experimentalImg from "@/assets/services/experimental-new.png";
@@ -33,6 +34,7 @@ const services: Service[] = [{
 }, {
   title: "Social Media & Format Content",
   image: socialImg,
+  video: socialVideo,
   gridClass: "md:col-span-2 md:row-span-1"
 }, {
   title: "Experimental & IP Projects",
@@ -44,8 +46,8 @@ const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [videoReady, setVideoReady] = useState(false);
   useEffect(() => {
-    // Preload both videos
-    const videos = [animationVideo, experimentalVideo];
+    // Preload all videos
+    const videos = [animationVideo, socialVideo, experimentalVideo];
     let loadedCount = 0;
     videos.forEach(videoSrc => {
       const video = document.createElement('video');
