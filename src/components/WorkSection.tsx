@@ -108,7 +108,7 @@ const WorkSection = () => {
                             <img
                               src={
                                 video.type === "youtube"
-                                  ? `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`
+                                  ? `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`
                                   : `https://drive.google.com/thumbnail?id=${video.id}&sz=w1920`
                               }
                               alt={video.title}
