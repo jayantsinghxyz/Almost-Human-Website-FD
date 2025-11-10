@@ -47,7 +47,6 @@ const ServicesSection = () => {
     // Preload both videos
     const videos = [animationVideo, experimentalVideo];
     let loadedCount = 0;
-    
     videos.forEach(videoSrc => {
       const video = document.createElement('video');
       video.src = videoSrc;
