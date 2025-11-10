@@ -71,9 +71,6 @@ const WorkSection = () => {
                 containScroll: false,
               }}
             >
-              <CarouselPrevious className="hidden md:flex fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 z-50 h-12 w-12" />
-              <CarouselNext className="hidden md:flex fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-50 h-12 w-12" />
-              
               <CarouselContent className="-ml-4">
                 {WORK_VIDEOS.map((video, index) => (
                   <CarouselItem
@@ -120,6 +117,10 @@ const WorkSection = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
+              
+              {/* Navigation Arrows - Desktop Only */}
+              <CarouselPrevious className="hidden md:flex fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 h-12 w-12 z-50" />
+              <CarouselNext className="hidden md:flex fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 h-12 w-12 z-50" />
             </Carousel>
 
             {/* Navigation Dots */}
