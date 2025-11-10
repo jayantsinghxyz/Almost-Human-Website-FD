@@ -119,8 +119,8 @@ const WorkSection = () => {
               </CarouselContent>
               
               {/* Navigation Buttons */}
-              <CarouselPrevious className="-left-4 md:-left-6 top-1/2 -translate-y-1/2 rounded-full h-10 w-10 md:h-12 md:w-12 bg-background/80 hover:bg-background border-border" />
-              <CarouselNext className="-right-4 md:-right-6 top-1/2 -translate-y-1/2 rounded-full h-10 w-10 md:h-12 md:w-12 bg-background/80 hover:bg-background border-border" />
+              <CarouselPrevious className="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 rounded-full h-10 w-10 md:h-12 md:w-12 bg-background/80 hover:bg-background border-border z-50" />
+              <CarouselNext className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 rounded-full h-10 w-10 md:h-12 md:w-12 bg-background/80 hover:bg-background border-border z-50" />
             </Carousel>
 
             {/* Navigation Dots */}
