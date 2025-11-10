@@ -19,7 +19,6 @@ export default {
         'just-sans': ['JUST Sans', 'system-ui', 'sans-serif'],
         'erstoria': ['Erstoria', 'Georgia', 'serif'],
         'awesome-serif': ['AwesomeSerif', 'Georgia', 'serif'],
-        'pixel': ['"Press Start 2P"', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
