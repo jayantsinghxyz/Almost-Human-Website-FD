@@ -41,7 +41,7 @@ export const SHOWCASE_VIDEO = {
 
 // Work Videos (Google Drive IDs)
 export const WORK_VIDEOS = [
-  { id: "1Kt-sjR8bkp5EEBFKlekqLHMGW07lUBoP", title: "Jeevansathi", description: "Branding, Web Design and Development" },
+  { id: "1XFMu6hrZalEyNbP9WiOz3F7sIO4biRRx", title: "Jeevansathi", description: "Branding, Web Design and Development" },
   { id: "1zsST6C9bDywLDOWCn1QvulTlGex--IZ4", title: "Myntra", description: "Branding, Web Design and Development" },
   { id: "1CnfZcjIhRJABJalE6Y_F0-di4cgTOP9M", title: "Philips", description: "Branding, Web Design and Development" },
   { id: "12m730hvD7MT53ppdMLOPYJ62KDuTVEqm", title: "Tata", description: "Branding, Web Design and Development" },
