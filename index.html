@@ -39,6 +39,10 @@
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="/hero-bg.png" fetchpriority="high" />
     
+    <!-- Preload critical fonts to break dependency chain -->
+    <link rel="preload" as="font" href="/fonts/JUST_Sans_Medium.woff2" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" href="/fonts/Erstoria.otf" type="font/otf" crossorigin="anonymous" />
+    
     <!-- Fonts -->
     <style>
       @font-face {
