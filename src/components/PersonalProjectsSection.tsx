@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { PERSONAL_PROJECTS_VIDEOS } from "@/config/constants";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, type CarouselApi } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 const PersonalProjectsSection = () => {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
@@ -66,10 +66,6 @@ const PersonalProjectsSection = () => {
                     </div>
                   </CarouselItem>)}
               </CarouselContent>
-              
-              {/* Navigation Buttons */}
-              <CarouselPrevious className="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 rounded-full h-10 w-10 md:h-12 md:w-12 bg-background/80 hover:bg-background border-border z-50" />
-              <CarouselNext className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 rounded-full h-10 w-10 md:h-12 md:w-12 bg-background/80 hover:bg-background border-border z-50" />
             </Carousel>
 
             {/* Navigation Dots */}
