@@ -78,7 +78,7 @@ const WorkSection = () => {
                     onMouseLeave={() => handleVideoHover(index, false)}
                   >
                     <div className="group">
-                      <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative mb-3">
+                      <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-3">
                         {playingVideo === index ? (
                           <iframe
                             className="w-full h-full"
