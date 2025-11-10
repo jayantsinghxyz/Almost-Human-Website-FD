@@ -69,7 +69,7 @@ const Navigation = () => {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-xl sm:text-2xl font-bold text-white hover:text-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2"
-            aria-label="Go to top"
+            aria-label="AlmostHuman - Go to top"
             style={{ fontWeight: 700 }}
           >
             {SITE_CONFIG.name}
