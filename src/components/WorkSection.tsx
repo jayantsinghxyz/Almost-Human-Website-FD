@@ -72,7 +72,7 @@ const WorkSection = () => {
                 {WORK_VIDEOS.map((video, index) => (
                   <CarouselItem
                     key={video.id}
-                    className="pl-4 md:basis-1/2 lg:basis-1/2"
+                    className="pl-4"
                     onMouseEnter={() => handleVideoHover(index, true)}
                     onMouseLeave={() => handleVideoHover(index, false)}
                   >
