@@ -45,7 +45,7 @@ const PersonalProjectsSection = () => {
       autoplayPlugin.current.play();
     }
   };
-  return <section id="personal-projects" ref={targetRef as React.RefObject<HTMLElement>} className="pt-3 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 gradient-vintage">
+  return <section id="personal-projects" ref={targetRef as React.RefObject<HTMLElement>} className="pt-3 md:pt-4 lg:pt-5 pb-12 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 gradient-vintage">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="bg-transparent p-4 sm:p-6 md:p-8">
           <div className="text-center mb-8 md:mb-12">
@@ -82,10 +82,10 @@ const PersonalProjectsSection = () => {
               </CarouselContent>
               
               {/* Navigation Buttons */}
-              <div className="flex justify-center gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-8">
-                <CarouselPrevious className="relative static translate-y-0 h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full bg-background/90 shadow-md border-2 border-border hover:bg-accent hover:border-primary transition-colors disabled:opacity-20 disabled:cursor-not-allowed [&_svg]:h-5 [&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6 [&_svg]:stroke-[2.5] [&_svg]:text-foreground" />
+              <div className="flex justify-center gap-2 md:gap-6 lg:gap-8 mt-6 md:mt-8">
+                <CarouselPrevious className="relative static translate-y-0 h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full bg-background/90 shadow-md border-2 border-border disabled:opacity-20 disabled:cursor-not-allowed [&_svg]:h-5 [&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6 [&_svg]:stroke-[2.5] [&_svg]:text-foreground" />
                 
-                <CarouselNext className="relative static translate-y-0 h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full bg-background/90 shadow-md border-2 border-border hover:bg-accent hover:border-primary transition-colors disabled:opacity-20 disabled:cursor-not-allowed [&_svg]:h-5 [&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6 [&_svg]:stroke-[2.5] [&_svg]:text-foreground" />
+                <CarouselNext className="relative static translate-y-0 h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full bg-background/90 shadow-md border-2 border-border disabled:opacity-20 disabled:cursor-not-allowed [&_svg]:h-5 [&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6 [&_svg]:stroke-[2.5] [&_svg]:text-foreground" />
               </div>
             </Carousel>
           </div>
