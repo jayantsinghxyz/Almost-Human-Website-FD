@@ -62,10 +62,10 @@ const WorkSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="bg-transparent p-4 sm:p-6 md:p-8">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Not Another<br className="sm:hidden" /> AI Studio
             </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto">
               We don't chase trends. We chase emotion. AlmostHuman is built by creators who believe AI shouldn't replace creativity; <span className="whitespace-nowrap">it should amplify it.</span>
             </p>
           </div>
@@ -125,7 +125,7 @@ const WorkSection = () => {
                       </div>
                       
                       <div className="text-left">
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold font-just-sans">{video.title}</h3>
+                        <h3 className="text-lg md:text-2xl lg:text-3xl font-bold font-just-sans">{video.title}</h3>
                       </div>
                     </div>
                   </CarouselItem>
