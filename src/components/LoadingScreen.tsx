@@ -11,7 +11,11 @@ const LoadingScreen = () => {
         <h1 className="text-white font-pixel text-lg sm:text-2xl md:text-3xl lg:text-4xl text-center px-4 leading-relaxed">
           Chill, it's generating
         </h1>
-        <div className="w-3 h-3 bg-white animate-pulse" />
+        <div className="flex gap-2">
+          <div className="w-3 h-3 bg-white animate-loading-dots" />
+          <div className="w-3 h-3 bg-white animate-loading-dots [animation-delay:0.2s]" />
+          <div className="w-3 h-3 bg-white animate-loading-dots [animation-delay:0.4s]" />
+        </div>
       </div>
     </div>
   );
