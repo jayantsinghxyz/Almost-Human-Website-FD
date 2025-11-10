@@ -35,18 +35,21 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  disableRipple?: boolean;
+  disableMagnetic?: boolean;
+  disableHoverLift?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, disableRipple = false, disableMagnetic = false, disableHoverLift = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     const { ripples, addRipple } = useRipple();
-    const [magneticRef, magneticPosition] = useMagneticEffect<HTMLButtonElement>(0.2);
+    const [magneticRef, magneticPosition] = useMagneticEffect<HTMLButtonElement>(disableMagnetic ? 0 : 0.2);
 
     React.useImperativeHandle(ref, () => magneticRef.current!);
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      if (!asChild) {
+      if (!asChild && !disableRipple) {
         addRipple(e);
       }
       props.onClick?.(e);
@@ -54,7 +57,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden hover-lift")}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          "relative overflow-hidden",
+          disableHoverLift ? "" : "hover-lift"
+        )}
         ref={magneticRef}
         style={{
           transform: `translate(${magneticPosition.x}px, ${magneticPosition.y}px)`,
@@ -64,7 +71,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={handleClick as any}
       >
         {props.children}
-        {!asChild && ripples.map((ripple) => (
+        {!asChild && !disableRipple && ripples.map((ripple) => (
           <span
             key={ripple.key}
             className="absolute bg-white/30 rounded-full animate-ripple pointer-events-none"
