@@ -1,7 +1,7 @@
 // Site Configuration
 export const SITE_CONFIG = {
   name: "AlmostHuman",
-  tagline: "Making AI films feel human",
+  tagline: "Born from emotion, built with AI",
   email: "Hello@almosthuman.in",
   instagram: "https://www.instagram.com/almosthuman.in/",
   twitter: "https://x.com/Almosthumanin",

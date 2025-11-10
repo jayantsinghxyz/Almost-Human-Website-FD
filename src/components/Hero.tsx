@@ -10,7 +10,7 @@ const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const parallaxOffset = useParallax(0.5);
   const { displayedText } = useTypewriter({ 
-    text: "Making AI films feel human", 
+    text: "Born from emotion, built with AI", 
     speed: 80, 
     delay: 1000 
   });
