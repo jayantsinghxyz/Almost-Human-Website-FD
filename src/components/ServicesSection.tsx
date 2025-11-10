@@ -5,6 +5,7 @@ import socialImg from "@/assets/services/social-new.png";
 import charactersImg from "@/assets/services/character-design-new.png";
 import worldsImg from "@/assets/services/worlds-new.png";
 import experimentalImg from "@/assets/services/experimental-new.png";
+import experimentalVideo from "@/assets/services/experimental-video.mp4";
 import { useState, useEffect } from "react";
 interface Service {
   title: string;
@@ -36,19 +37,28 @@ const services: Service[] = [{
 }, {
   title: "Experimental & IP Projects",
   image: experimentalImg,
+  video: experimentalVideo,
   gridClass: "md:col-span-2 md:row-span-1"
 }];
 const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [videoReady, setVideoReady] = useState(false);
   useEffect(() => {
-    // Preload the video
-    const video = document.createElement('video');
-    video.src = animationVideo;
-    video.load();
-    video.onloadeddata = () => {
-      setVideoReady(true);
-    };
+    // Preload both videos
+    const videos = [animationVideo, experimentalVideo];
+    let loadedCount = 0;
+    
+    videos.forEach(videoSrc => {
+      const video = document.createElement('video');
+      video.src = videoSrc;
+      video.load();
+      video.onloadeddata = () => {
+        loadedCount++;
+        if (loadedCount === videos.length) {
+          setVideoReady(true);
+        }
+      };
+    });
   }, []);
   const shouldShowVideo = (index: number) => {
     return hoveredIndex === index && videoReady && services[index].video;
