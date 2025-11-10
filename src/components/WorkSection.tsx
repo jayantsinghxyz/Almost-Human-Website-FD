@@ -96,7 +96,7 @@ const WorkSection = () => {
                             className="w-full h-full"
                             src={
                               video.type === "youtube"
-                                ? `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0`
+                                ? `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&vq=hd1080`
                                 : `https://drive.google.com/file/d/${video.id}/preview`
                             }
                             title={video.title}
