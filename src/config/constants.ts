@@ -42,15 +42,15 @@ export const SHOWCASE_VIDEO = {
 // Work Videos (Google Drive IDs or YouTube IDs)
 export const WORK_VIDEOS = [
   { id: "1XFMu6hrZalEyNbP9WiOz3F7sIO4biRRx", title: "Jeevansathi", description: "Branding, Web Design and Development", type: "drive" },
-  { id: "1zsST6C9bDywLDOWCn1QvulTlGex--IZ4", title: "Myntra", description: "Branding, Web Design and Development", type: "drive" },
-  { id: "1CnfZcjIhRJABJalE6Y_F0-di4cgTOP9M", title: "Philips", description: "Branding, Web Design and Development", type: "drive" },
+  { id: "xx4tvt-KSPc", title: "Myntra", description: "Branding, Web Design and Development", type: "youtube" },
+  { id: "mtZqzZxAdd0", title: "Philips", description: "Branding, Web Design and Development", type: "youtube" },
   { id: "SVmIzkThDh0", title: "Tata", description: "Branding, Web Design and Development", type: "youtube" },
 ] as const;
 
-// Personal Projects Videos (Google Drive IDs)
+// Personal Projects Videos (YouTube IDs)
 export const PERSONAL_PROJECTS_VIDEOS = [
-  { id: "1Qje_a46U-HITm3yDUMN4wYEGPnzR_cup", title: "Invisible" },
-  { id: "1aubmPIP4MoMcGIsRrKQdcPsQFcekxalY", title: "Memories" },
-  { id: "129QspelqbVprRiBo8ZtiFCl2520Sy53D", title: "Bob & Me" },
-  { id: "1VhhsHuGfIQ0IrtpEOLjqzZzmPobLZH91", title: "Born" },
+  { id: "HX8-e5pKcAk", title: "Invisible" },
+  { id: "LXyfFC6j318", title: "Memories" },
+  { id: "pA3UsOB1hK4", title: "Bob & Me" },
+  { id: "j9cdKgbvM3k", title: "Born" },
 ] as const;
