@@ -143,7 +143,7 @@ const WorkSection = () => {
               </CarouselContent>
               
               {/* Navigation Buttons */}
-              <div className="flex justify-center gap-2 md:gap-6 lg:gap-8 mt-6 md:mt-8">
+              <div className="flex justify-center gap-1 md:gap-6 lg:gap-8 mt-6 md:mt-8">
                 <CarouselPrevious className="relative static translate-y-0 h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full bg-background/90 shadow-md border-2 border-border disabled:opacity-20 disabled:cursor-not-allowed [&_svg]:h-5 [&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6 [&_svg]:stroke-[2.5] [&_svg]:text-foreground" />
                 
                 <CarouselNext className="relative static translate-y-0 h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full bg-background/90 shadow-md border-2 border-border disabled:opacity-20 disabled:cursor-not-allowed [&_svg]:h-5 [&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6 [&_svg]:stroke-[2.5] [&_svg]:text-foreground" />
