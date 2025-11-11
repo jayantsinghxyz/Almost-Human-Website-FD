@@ -61,6 +61,9 @@ const Navigation = () => {
         Skip to main content
       </a>
 
+      {/* Translucent black bar behind header */}
+      <div className="absolute top-0 left-0 right-0 z-40 h-16 md:h-20 bg-black/40" aria-hidden="true" />
+
       {/* Header - Always visible */}
       <header className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 h-16 md:h-20 ${
         isScrolled ? 'bg-background border-b border-border' : 'bg-transparent'
@@ -90,9 +93,6 @@ const Navigation = () => {
           </button>
         </div>
       </header>
-
-      {/* Slim translucent black bar */}
-      <div className="absolute top-16 md:top-20 left-0 right-0 z-40 h-0.5 bg-black/30" aria-hidden="true" />
 
       {/* Full Screen Menu */}
       <nav
