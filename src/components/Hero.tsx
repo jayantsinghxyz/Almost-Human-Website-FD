@@ -1,5 +1,4 @@
 import heroVideo from "@/assets/home-page-video.webm";
-import heroPoster from "@/assets/hero-bg.webp";
 import logo from "@/assets/logo.svg";
 import { useParallax } from "@/hooks/useParallax";
 import { useTypewriter } from "@/hooks/useTypewriter";
@@ -26,7 +25,6 @@ const Hero = () => {
         >
           <video
             src={heroVideo}
-            poster={heroPoster}
             autoPlay
             loop
             muted
