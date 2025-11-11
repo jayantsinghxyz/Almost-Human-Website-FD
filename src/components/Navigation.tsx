@@ -91,6 +91,9 @@ const Navigation = () => {
         </div>
       </header>
 
+      {/* Slim translucent black bar */}
+      <div className="absolute top-16 md:top-20 left-0 right-0 z-40 h-0.5 bg-black/30" aria-hidden="true" />
+
       {/* Full Screen Menu */}
       <nav
         id="mobile-menu"
