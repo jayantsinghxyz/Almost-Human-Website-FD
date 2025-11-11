@@ -6,6 +6,7 @@ import socialImg from "@/assets/services/social-new.png";
 import socialVideo from "@/assets/services/social-video.mp4";
 import charactersImg from "@/assets/services/character-design-new.png";
 import worldsImg from "@/assets/services/worlds-new.png";
+import worldsVideo from "@/assets/services/worlds-video.mp4";
 import experimentalImg from "@/assets/services/experimental-new.png";
 import experimentalVideo from "@/assets/services/experimental-video.mp4";
 import { useState, useEffect } from "react";
@@ -32,6 +33,7 @@ const services: Service[] = [{
 }, {
   title: "World-Building",
   image: worldsImg,
+  video: worldsVideo,
   gridClass: "md:col-span-2 md:row-span-1"
 }, {
   title: "Social Media & Format Content",
@@ -49,7 +51,7 @@ const ServicesSection = () => {
   const [videoReady, setVideoReady] = useState(false);
   useEffect(() => {
     // Preload all videos
-    const videos = [filmsVideo, animationVideo, socialVideo, experimentalVideo];
+    const videos = [filmsVideo, animationVideo, socialVideo, worldsVideo, experimentalVideo];
     let loadedCount = 0;
     videos.forEach(videoSrc => {
       const video = document.createElement('video');
